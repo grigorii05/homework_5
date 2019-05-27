@@ -18,6 +18,6 @@ if(BUILD_TESTS)
   #$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/banking>
   #$<INSTALL_INTERFACE:include> 
   #)
-  target_link_libraries(check ${PROJECT_NAME} gtest_main)
+  #target_link_libraries(check ${PROJECT_NAME} gtest_main)
   add_test(NAME check COMMAND check)
 endif()
