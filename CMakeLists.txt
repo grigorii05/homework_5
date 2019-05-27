@@ -13,8 +13,8 @@ if(BUILD_TESTS)
   enable_testing()
   add_subdirectory(third-party/gtest)
   file(GLOB ${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
-  add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
-  target_include_directories(check PUBLIC)
+  #add_executable(check ${${PROJECT_NAME}_TEST_SOURCES})
+  #target_include_directories(check PUBLIC)
   #$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/banking>
   #$<INSTALL_INTERFACE:include> 
   #)
