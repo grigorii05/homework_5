@@ -1,11 +1,18 @@
 language: cpp
+before_install:
+- pip install --user cpp-coveralls
 script:
-- cmake -H. -B_build
-- cmake —build _build
+- cmake -H. -B_build -DBUILD_TESTS=ON
+- cmake --build _build
+- cmake --build _build --target test -- AGRS=--verbose
+#- make && make check
+#- ./configure --enable-gcov && make && make check
 addons:
-apt:
-sources:
-- george-edison55-precise-backports
-packages:
-- cmake
-- cmake-data
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake
+      - cmake-data
+after_success:
+- coveralls --exclude lib --exclude tests --gcov-options '\-lp'
